@@ -25,6 +25,10 @@ const router = createBrowserRouter([
     path: "/login2",
     element: <Login2 />,
   },
+  {
+    path: "/todolist",
+    element: <Video />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(

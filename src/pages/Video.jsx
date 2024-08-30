@@ -20,15 +20,6 @@ export const Video = () => {
     <div className="flex flex-col  ">
       <Navbar />
       <main className="flex-grow flex items-center justify-center p-5">
-        <form>
-          <input
-            text="password"
-            placeholder="put your password"
-            onChange={() => dispatch()}
-          />
-          <input text="password" placeholder="put your password" />
-          <button>Submit</button>
-        </form>
         {loading ? (
           <p className="mt-5"> Loading...</p>
         ) : (
