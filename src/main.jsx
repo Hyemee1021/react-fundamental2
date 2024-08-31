@@ -9,6 +9,7 @@ import { VideoProvider } from "./contexts/VideoContext.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Login2 } from "./pages/Login2.jsx";
 import { TodoList } from "./pages/TodoList.jsx";
+import { ListProvider } from "./contexts/ListContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,7 +36,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <VideoProvider>
-      <RouterProvider router={router} />
+      <ListProvider>
+        <RouterProvider router={router} />
+      </ListProvider>
     </VideoProvider>
   </StrictMode>
 );
