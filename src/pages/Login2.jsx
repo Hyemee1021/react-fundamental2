@@ -45,7 +45,7 @@ export const Login2 = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <main className="flex flex-grow items-center justify-center mt-16">
+      <main className="flex  flex-col gap-3 flex-grow items-center justify-center mt-16">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col gap-5 w-3/4 max-w-md bg-blue-300 p-6 rounded-lg shadow-lg "
@@ -73,8 +73,9 @@ export const Login2 = () => {
             Submit
           </button>
         </form>
-        {state.match && <p>password matched</p>}
-        {!state.match && <p>password not matched</p>}
+        <div>
+          {state.match ? <p>password matched</p> : <p>Passwords not matched</p>}
+        </div>
       </main>
     </div>
   );

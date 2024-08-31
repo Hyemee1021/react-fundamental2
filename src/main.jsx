@@ -8,6 +8,7 @@ import { PlayList } from "./pages/PlayList.jsx";
 import { VideoProvider } from "./contexts/VideoContext.jsx";
 import { Login } from "./pages/Login.jsx";
 import { Login2 } from "./pages/Login2.jsx";
+import { TodoList } from "./pages/TodoList.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/todolist",
-    element: <Video />,
+    element: <TodoList />,
   },
 ]);
 
