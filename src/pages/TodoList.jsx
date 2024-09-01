@@ -1,49 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useContext, useReducer } from "react";
 import { Navbar } from "../components/Navbar";
+import ListContext from "../contexts/ListContext";
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "add":
-      const newId = state.todo.length
-        ? Math.max(state.todo.map((list) => list.id)) + 1
-        : 1;
-      return {
-        ...state.todo,
-        todo: [...state.todo, { id: newId, text: state.inputValue }],
-        inputValue: "", // Clear input after adding todo
-      };
-
-    case "inputValue":
-      return {
-        ...state,
-        inputValue: action.payload,
-      };
-
-    default:
-      throw new Error("Unknown action");
-  }
-}
-
-const initialState = {
-  todo: [],
-  inputValue: "",
-};
 export const TodoList = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { state, dispatch, handleChange, handleAdd, handleRemove } =
+    useContext(ListContext);
 
-  const handleChange = (e) => {
-    dispatch({
-      type: "inputValue",
-      payload: e.target.value,
-    });
-  };
-
-  const handleAdd = (e) => {
-    e.preventDefault();
-    dispatch({
-      type: "add",
-    });
-  };
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Navbar />
@@ -56,15 +18,29 @@ export const TodoList = () => {
             value={state.inputValue}
           />
           <button
-            className="btn bg-blue-600 text-white px-3"
+            className="btn bg-blue-600 text-white px-3 hover:bg-blue-400"
             onClick={handleAdd}
           >
             Add
           </button>
         </div>
         <div>
+          <h1 className="font-bold text-lg my-2">Things to do</h1>
           {state.todo.length > 0 &&
-            state.todo.map((item) => <li key={item.id}>{item.text}</li>)}
+            state.todo.map((item) => (
+              <div
+                key={item.id}
+                className="w-full flex flex-row  my-2 items-center justify-between gap-5 "
+              >
+                {item.text}
+                <button
+                  className="btn bg-blue-500 text-white p-1 px-2 hover:bg-blue-400"
+                  onClick={() => handleRemove(item.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
         </div>
       </main>
     </div>

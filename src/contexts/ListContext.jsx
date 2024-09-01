@@ -13,12 +13,19 @@ function reducer(state, action) {
         todo: [...state.todo, { id: newId, text: state.inputValue }],
         inputValue: "", // Clear input after adding todo
       };
+      break;
 
+    case "remove":
+      return {
+        ...state,
+        todo: state.todo.filter((item) => item.id !== action.payload),
+      };
     case "inputValue":
       return {
         ...state,
         inputValue: action.payload,
       };
+      break;
 
     default:
       throw new Error("Unknown action");
@@ -46,8 +53,17 @@ export function ListProvider({ children }) {
       type: "add",
     });
   };
+
+  const handleRemove = (id) => {
+    dispatch({
+      type: "remove",
+      payload: id,
+    });
+  };
   return (
-    <ListContext.Provider value={{ state, dispatch, handleChange, handleAdd }}>
+    <ListContext.Provider
+      value={{ state, dispatch, handleChange, handleAdd, handleRemove }}
+    >
       {children}
     </ListContext.Provider>
   );
