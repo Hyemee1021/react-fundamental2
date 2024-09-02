@@ -16,6 +16,7 @@ export const TodoList = () => {
             className="bg-slate-200 p-1 "
             onChange={handleChange}
             value={state.inputValue}
+            placeholder="Enter your plan"
           />
           <button
             className="btn bg-blue-600 text-white px-3 hover:bg-blue-400"
