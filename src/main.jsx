@@ -10,6 +10,8 @@ import { Login } from "./pages/Login.jsx";
 import { Login2 } from "./pages/Login2.jsx";
 import { TodoList } from "./pages/TodoList.jsx";
 import { ListProvider } from "./contexts/ListContext.jsx";
+import { PostList } from "./pages/PostList.jsx";
+import { PostProvider } from "./contexts/PostContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,13 +33,19 @@ const router = createBrowserRouter([
     path: "/todolist",
     element: <TodoList />,
   },
+  {
+    path: "/post-list",
+    element: <PostList />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <VideoProvider>
       <ListProvider>
-        <RouterProvider router={router} />
+        <PostProvider>
+          <RouterProvider router={router} />
+        </PostProvider>
       </ListProvider>
     </VideoProvider>
   </StrictMode>

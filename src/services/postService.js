@@ -1,4 +1,4 @@
-export async function FetchPosts(url) {
+export async function FetchPosts() {
   try {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/comments?postId=1"
@@ -14,5 +14,6 @@ export async function FetchPosts(url) {
     return data;
   } catch (error) {
     console.log(error.message);
+    return [];
   }
 }

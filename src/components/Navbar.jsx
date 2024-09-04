@@ -25,6 +25,12 @@ export const Navbar = () => {
         </button>
         <button
           className="border px-2 py-1 shadow-sm"
+          onClick={() => navigate("/post-list")}
+        >
+          Post List
+        </button>
+        <button
+          className="border px-2 py-1 shadow-sm"
           onClick={() => navigate("/")}
         >
           Video
