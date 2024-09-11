@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 import { Greet } from "../pages/Greet";
 import "@testing-library/jest-dom/vitest";
 import { Counter } from "../pages/Counter";
-
+import { userEvent } from "@testing-library/user-event";
 describe("Plus button", () => {
   it("should increment num state", () => {
     render(<Counter />);

@@ -25,6 +25,12 @@ export const Navbar = () => {
         </button>
         <button
           className="border px-2 py-1 shadow-sm"
+          onClick={() => navigate("/todolist2")}
+        >
+          To-do List2
+        </button>
+        <button
+          className="border px-2 py-1 shadow-sm"
           onClick={() => navigate("/post-list")}
         >
           Post List

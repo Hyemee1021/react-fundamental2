@@ -2,8 +2,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import { Greet } from "../pages/Greet";
 import "@testing-library/jest-dom/vitest";
-//1 with name- hello name
-// 2 with no name-helloe
+
 describe("Greet component", () => {
   it("should  be truthy", () => {
     //render my component

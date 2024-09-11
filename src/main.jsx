@@ -13,6 +13,8 @@ import { ListProvider } from "./contexts/ListContext.jsx";
 import { PostList } from "./pages/PostList.jsx";
 import { PostProvider } from "./contexts/PostContext.jsx";
 import { Counter } from "./pages/Counter.jsx";
+
+import TaskManager from "./pages/TaskManager.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/counter",
     element: <Counter />,
+  },
+  {
+    path: "/todolist2",
+    element: <TaskManager />,
   },
 ]);
 
