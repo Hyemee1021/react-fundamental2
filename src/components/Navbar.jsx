@@ -4,7 +4,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   return (
     <div className="w-full p-3 fixed top-0 left-0 bg-white shadow-md z-10">
-      <div className="flex flex-row gap-3 justify-center">
+      <div className="flex flex-row gap-3 justify-center flex-wrap">
         <button
           className="border px-2 py-1 shadow-sm"
           onClick={() => navigate("/login")}
@@ -40,6 +40,12 @@ export const Navbar = () => {
           onClick={() => navigate("/playlist")}
         >
           Playlist
+        </button>
+        <button
+          className="border px-2 py-1 shadow-sm"
+          onClick={() => navigate("/counter")}
+        >
+          Counter
         </button>
       </div>
     </div>

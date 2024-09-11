@@ -7,17 +7,19 @@ export const PostList = () => {
   return (
     <div>
       <Navbar />
-      <main>
+      <main className="mt-20 px-5">
         {loading ? (
           <p>Loading..</p>
         ) : (
-          <ul>
+          <div className="flex flex-col gap-3">
             {posts.map((post) => (
-              <li key={post.id}>
-                {post.name} - {post.body}
-              </li>
+              <div className="border" key={post.id}>
+                <div> Name: {post.name}</div>
+
+                <div className="text-gray-600"> {post.body}</div>
+              </div>
             ))}
-          </ul>
+          </div>
         )}
       </main>
     </div>

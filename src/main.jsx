@@ -12,6 +12,7 @@ import { TodoList } from "./pages/TodoList.jsx";
 import { ListProvider } from "./contexts/ListContext.jsx";
 import { PostList } from "./pages/PostList.jsx";
 import { PostProvider } from "./contexts/PostContext.jsx";
+import { Counter } from "./pages/Counter.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/post-list",
     element: <PostList />,
+  },
+  {
+    path: "/counter",
+    element: <Counter />,
   },
 ]);
 
