@@ -4,6 +4,7 @@ import { Navbar } from "../components/Navbar";
 export const Login = () => {
   const [input, setInput] = useState("");
   const [results, setResults] = useState([]);
+
   const handleChange = (e) => {
     setInput(e.target.value);
     console.log(input);

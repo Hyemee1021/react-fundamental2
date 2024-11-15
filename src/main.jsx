@@ -15,6 +15,11 @@ import { PostProvider } from "./contexts/PostContext.jsx";
 import { Counter } from "./pages/Counter.jsx";
 
 import TaskManager from "./pages/TaskManager.jsx";
+import { Forms } from "./pages/Forms.jsx";
+import { Blog } from "./pages/Blog.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import LoginFirebase from "./pages/LoginFirebase.jsx";
+import { UserProvider } from "./contexts/UserContext.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +38,10 @@ const router = createBrowserRouter([
     element: <Login2 />,
   },
   {
+    path: "/login3",
+    element: <LoginFirebase />,
+  },
+  {
     path: "/todolist",
     element: <TodoList />,
   },
@@ -48,6 +57,18 @@ const router = createBrowserRouter([
     path: "/todolist2",
     element: <TaskManager />,
   },
+  {
+    path: "/multiforms",
+    element: <Forms />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
+  },
+  {
+    path: "/posts/:id",
+    element: <BlogPage />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
@@ -55,7 +76,9 @@ createRoot(document.getElementById("root")).render(
     <VideoProvider>
       <ListProvider>
         <PostProvider>
-          <RouterProvider router={router} />
+          <UserProvider>
+            <RouterProvider router={router} />
+          </UserProvider>
         </PostProvider>
       </ListProvider>
     </VideoProvider>
