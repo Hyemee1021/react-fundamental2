@@ -34,15 +34,17 @@ const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app); // Initialize Firestore
 
+export { db };
 // Function to create or update the user's document in Firestore
 const createOrUpdateUserDoc = async (user) => {
   const { uid, email } = user; // Extract necessary fields
 
-  const userDocRef = doc(db, "users", uid); // Reference the user's document
-
   try {
     // 1. The user's email is stored as a field in the document.
     //2. The { merge: true } option ensures that if a document with the same uid already exists, only the new fields are updated (instead of overwriting the entire document).
+
+    const userDocRef = doc(db, "users", uid); // Reference the user's document
+
     await setDoc(userDocRef, { email }, { merge: true });
     console.log("User document created/updated successfully in Firestore.");
   } catch (error) {
@@ -58,7 +60,6 @@ export const signup = async (email, password) => {
       password
     );
 
-    console.log("User signed up:", userCredential.user);
     // The userCredential.user contains the user's unique ID (uid) and email.
     // Create/update Firestore document after signing up
     await createOrUpdateUserDoc(userCredential.user);
